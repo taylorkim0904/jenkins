@@ -53,11 +53,10 @@ jobs:
       # 2. 삭제 docker rm container속에들어있는프로세스아이디명
       # 3. dockerhub에서 읽기 pull 
       # 4. 실행명령 : run 
-      - name: Deploy on server using DockerHub image
+      - name: Deploy on server using Docker Compose
         run: |
-          ssh ubuntu@13.124.207.154 << 'EOF'
-            docker stop spring-jenkins || true
-            docker rm spring-jenkins || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-jenkins:latest
-            docker run -d --name spring-jenkins -p 9090:9090 ${{ secrets.DOCKERHUB_USERNAME }}/spring-jenkins:latest
+          ssh ubuntu@13.48.148.193 << 'EOF'
+            cd ~/app
+            docker compose pull
+            docker compose up -d
           EOF
