@@ -42,11 +42,9 @@ pipeline {
         }
 
         // build 시작
-        stage('Gradle Build') {
+		stage('Gradle Build') {
             steps {
-                sh '''
-                    ./gradlew clean build
-                '''
+                sh "./gradlew clean build --no-daemon -Dorg.gradle.jvmargs='-Xmx512m'"
             }
         }
 
