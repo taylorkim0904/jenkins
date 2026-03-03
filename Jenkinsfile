@@ -45,7 +45,7 @@ pipeline {
         stage('Gradle Build') {
             steps {
                 sh '''
-                    ./gradlew clean build
+                    sh './gradlew clean build --no-daemon -Dorg.gradle.jvmargs="-Xmx512m"'
                 '''
             }
         }
