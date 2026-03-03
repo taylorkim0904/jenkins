@@ -3,7 +3,7 @@ pipeline {
 
     // 전역변수 => ${SERVER_IP}
     environment {
-        SERVER_IP   = "3.39.6.173"
+        SERVER_IP   = "13.48.148.193"
         SERVER_USER = "ubuntu"
         APP_DIR     = "~/app"
         JAR_NAME    = "jenkins-0.0.1-SNAPSHOT.jar"
